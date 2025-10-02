@@ -8,4 +8,5 @@ echo "Third variable: $3"
 echo "Script name: $0"
 echo "Process ID of current script: $$"
 echo "Exit status of last command: $?"  # 0 means success, non-zero means failure
-echo "Last background command's PID: $!"  # PID of last background command       
+sleep 60 &  # Sleep for 60 seconds in the background
+echo "Last background command's PID: $!"  # PID of last background command
