@@ -5,4 +5,4 @@
 echo "Hello World!"  # This line prints Hello World to the console
 # End of the script
 
-echo "Script execution completed."  # This line indicates the script has finished executg
+echo "Script execution completed."  # This line indicates the script has finished executig
