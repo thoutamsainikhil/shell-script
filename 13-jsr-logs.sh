@@ -3,7 +3,7 @@
 USER_ID=$(id -u)
 
 RED="\e[31m"
-GREEN="\e[32m"
+GREEN="\e[33m"
 Normal="\e[0m"
 
 LOGS_FOLDER="/var/log/shellscript-logs"
