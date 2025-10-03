@@ -2,13 +2,16 @@
 
 USER_ID=$(id -u)
 
+RED="\e[31m"
+GREEN="\e[32m"
+
 VALIDATE(){
       if [ $? -ne 0 ]
   then
-    echo "ERROR: Installation failed"
+    echo -e "$RED ERROR: Installation failed"
     exit 1
   else
-  echo "SUCCESS: Installation completed"
+  echo -e "$GREEN SUCCESS: Installation completed"
   fi
 }
 
@@ -16,7 +19,7 @@ VALIDATE(){
 
 if [ $USER_ID -ne 0 ]
 then
-  echo "ERROR: You must be root user to run this script"
+  echo -e "$RED ERROR: You must be root user to run this script"
   exit 1
 fi
 
@@ -26,7 +29,7 @@ then
   dnf install mysql -y
   VALIDATE $? 
 else 
-  echo "MySQL is already installed"
+  echo -e "$GREEN MySQL is already installed"
 fi
 
 
@@ -36,6 +39,6 @@ then
   dnf install git -y
     VALIDATE $?
 else
-  echo "Git is already installed"
+  echo -e "$GREEN Git is already installed"
 fi
 
