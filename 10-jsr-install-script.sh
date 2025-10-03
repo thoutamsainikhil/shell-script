@@ -37,3 +37,16 @@ then
 else
   echo "Git is already installed"
 fi
+
+
+#check if the user running the acript is root user or not
+# if root user
+# allow him
+# elseshow error message and exit
+
+# run th einstallation commands
+# check if the installation was successful
+# if successful
+# show success message
+# else
+# show failure message
