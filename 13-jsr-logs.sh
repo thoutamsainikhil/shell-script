@@ -4,6 +4,7 @@ USER_ID=$(id -u)
 
 RED="\e[31m"
 GREEN="\e[32m"
+Normal="\e[0m"
 
 LOGS_FOLDER="/var/log/shellscript-logs"
 LOG_FILE=$(echo $0 | cut -d "." -f1)
@@ -13,15 +14,14 @@ LOG_FILE_NAME="$LOGS_FOLDER/$LOG_FILE-$TIMESTAMP.log"
 VALIDATE(){
       if [ $? -ne 0 ]
   then
-    echo -e "$RED ERROR: Installation failed"
+    echo -e "$RED ERROR: Installation failed$Normal"
     exit 1
   else
-  echo -e "$GREEN SUCCESS: Installation completed"
+  echo -e "$GREEN SUCCESS: Installation completed$Normal"
   fi
 }
 
-echi "Script started executing at : $TIMESTAMP" &>>$LOG_FILE_NAME
-
+echo "Script started executing at : $TIMESTAMP" &>>$LOG_FILE_NAME
 
 
 if [ $USER_ID -ne 0 ]
