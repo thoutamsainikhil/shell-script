@@ -5,10 +5,10 @@ USER_ID=$(id -u)
 VALIDATE(){
       if [ $? -ne 0 ]
   then
-    echo "ERROR: Installation failed"
+    echo -e "\e[31m ERROR: Installation failed"
     exit 1
   else
-  echo "SUCCESS: Installation completed"
+  echo -e "\e[32m SUCCESS: Installation completed"
   fi
 }
 
