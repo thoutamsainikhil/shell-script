@@ -1,19 +1,7 @@
 #!/bin/bash
 
-#check if the user running the acript is root user or not
-# if root uder
-# allow him
-# elseshow error message and exit
-
-# run th einstallation commands
-# check if the installation was successful
-# if successful
-# show success message
-# else
-# show failure message
-
-$USER_ID=$(id -u)
-if[$USER_ID -ne 0]
+USER_ID=$(id -u)
+if [ $USER_ID -ne 0 ]
 then
   echo "ERROR: You must be root user to run this script"
   exit 1
