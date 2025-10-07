@@ -51,7 +51,7 @@ echo "Files to be backed up : $FILES"
 ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
 find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ "$ZIP_FILE"
 
-if [c-f "$ZIP_FILE"]
+if [ -f "$ZIP_FILE"]
 then
 echo -e "$GREEN Success:: $Normal ZIP file created older then $DAYS days"
 
