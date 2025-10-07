@@ -1,6 +1,5 @@
 #!/bin/bash
 
-USER_ID=$(id -u)
 
 RED="\e[31m"
 GREEN="\e[32m"
@@ -16,15 +15,6 @@ LOG_FILE=$(echo $0 | cut -d "." -f1)
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE_NAME="$LOGS_FOLDER/$LOG_FILE-$TIMESTAMP.log"
 
-VALIDATE(){
-      if [ $? -ne 0 ]
-  then
-    echo -e "$RED ERROR: Installation failed$Normal"
-    exit 1
-  else
-  echo -e "$GREEN SUCCESS: Installation completed$Normal"
-  fi
-}
 
 USAGE(){
     echo -e "$RED USAGE:: $Normal sh 16-jsr-backup.sh <SOURCE_DIR> <DEST_DIR> <DAYS(optional)>"
@@ -60,6 +50,24 @@ then
 echo "Files to be backed up : $FILES"
 ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
 find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ "$ZIP_FILE"
+
+if [c-f "$ZIP_FILE"]
+then
+echo -e "$GREEN Success:: $Normal ZIP file created older then $DAYS days"
+
+while read -r file
+
+do 
+
+echo "Deleting file : $file" &>>$LOG_FILE_NAME
+rm -rf $file &>>$LOG_FILE_NAME
+done <<< $FILES_TO_DELETE
+
+
+else
+echo -e "$RED Error:: $Normal Failed to create ZIP file"
+exit 1
+fi
 
 else
 echo "No files older then $DAYS"
