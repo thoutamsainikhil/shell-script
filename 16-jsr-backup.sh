@@ -59,7 +59,7 @@ if [ -n "$FILES" ] #true if there are files to zip
 then
 echo "Files to be backed up : $FILES"
 ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
-find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ "ZIP_FILE""
+find $SOURCE_DIR -name "*.log" -mtime +$DAYS | zip -@ "$ZIP_FILE"
 
 else
 echo "No files older then $DAYS"
