@@ -10,7 +10,7 @@ SOURCE_DIR=$1
 DEST_DIR=$2
 DAYS=${3:-14}
 
-LOGS_FOLDER="/var/log/shellscript-logs"
+LOGS_FOLDER="/home/ec2-user/shellscript-logs"
 LOG_FILE=$(echo $0 | cut -d "." -f1)
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE_NAME="$LOGS_FOLDER/$LOG_FILE-$TIMESTAMP.log"
@@ -27,6 +27,7 @@ VALIDATE(){
 
 USAGE(){
     echo -e "$RED USAGE:: $Normal sh 16-jsr-backup.sh <SOURCE_DIR> <DEST_DIR> <DAYS(optional)>"
+exit 1
 }
 
 mkdir -p /home/ec2-user/shell-script-logs/
@@ -34,7 +35,7 @@ mkdir -p /home/ec2-user/shell-script-logs/
 if [ $# -lt 2 ]
 then
   USAGE
-    exit 1
+    
 fi
 
 echo "Script started executing at : $TIMESTAMP" &>>$LOG_FILE_NAME
