@@ -39,4 +39,16 @@ then
     
 fi
 
+if [ ! -d $SOURCE_DIR ]
+then
+  echo -e "$RED ERROR: Source directory $SOURCE_DIR does not exist$Normal"
+  exit 1
+fi
+
+if [ ! -d $DEST_DIR ]
+then
+  echo -e "$RED ERROR: Destination directory $DEST_DIR does not exist$Normal"
+  exit 1
+fi
+
 echo "Script started executing at : $TIMESTAMP" &>>$LOG_FILE_NAME
