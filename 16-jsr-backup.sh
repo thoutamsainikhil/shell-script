@@ -29,9 +29,12 @@ USAGE(){
     echo -e "$RED USAGE:: $Normal sh 16-jsr-backup.sh <SOURCE_DIR> <DEST_DIR> <DAYS(optional)>"
 }
 
+mkdir -p /home/ec2-user/shell-script-logs/
+
 if [ $# -lt 2 ]
 then
   USAGE
+    exit 1
 fi
 
 echo "Script started executing at : $TIMESTAMP" &>>$LOG_FILE_NAME
