@@ -55,13 +55,13 @@ if [ -f "$ZIP_FILE" ]
 then
 echo -e "$GREEN Success:: $Normal ZIP file created older then $DAYS days"
 
-while read -r file
+while read -r filepath
 
 do 
 
-echo "Deleting file : $file"
-rm -rf $file
-done <<< $FILES_TO_DELETE
+echo "Deleting file : $filepath"
+rm -rf $filepath
+done <<< $FILES
 
 
 else
