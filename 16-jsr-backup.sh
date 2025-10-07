@@ -60,3 +60,4 @@ then
 echo "Files to be backed up : $FILES"
 else
 echo "No files older then $DAYS"
+fi
